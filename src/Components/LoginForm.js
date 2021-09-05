@@ -55,7 +55,7 @@ const Login = () => {
     register,
     formState: { errors },
   } = useForm({
-    mode: 'onSubmit',
+    mode: 'all',
     defaultValues,
     rules: { required: true },
   });

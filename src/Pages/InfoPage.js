@@ -26,18 +26,18 @@ const InfoPage = () => {
   const classes = useStyles();
 
   const loginReducer = useSelector((state) => state.loginReducer);
-  const { userInfo } = loginReducer;
+  const { user, isSignedIn } = loginReducer;
 
   const getInfoReducer = useSelector((state) => state.getInfoReducer);
   const { data } = getInfoReducer;
 
   useEffect(() => {
-    if (userInfo) {
+    if (user) {
       dispatch(GetInfoAction());
     } else {
-      console.log(userInfo);
+      console.log(user);
     }
-  }, [dispatch, userInfo]);
+  }, [dispatch, user]);
 
   const UserColumns = React.useMemo(
     () => [
@@ -118,10 +118,10 @@ const InfoPage = () => {
   return (
     <Grid className={classes.grid}>
       <CssBaseline />
-      {userInfo && userInfo[0].personalDetails ? (
+      {user && user[0].personalDetails ? (
         <Table
           columns={UserColumns}
-          data={userInfo}
+          data={user}
           className={classes.table}
           getCellProps={(cellInfo) => ({
             style: {

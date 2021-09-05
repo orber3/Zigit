@@ -8,11 +8,11 @@ export const GetInfoAction = () => async (dispatch, getState) => {
     });
 
     const {
-      loginReducer: { userInfo },
+      loginReducer: { user },
     } = getState();
     const config = {
       headers: {
-        Authorization: `Bearer ${userInfo.token}`,
+        Authorization: `Bearer ${user.token}`,
       },
     };
 

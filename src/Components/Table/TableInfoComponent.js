@@ -12,30 +12,29 @@ const useStyles = makeStyles((theme) => ({
   },
   info: {
     fontFamily: 'sans-sarif',
-    fontSize: '140%',
+    fontSize: '120%',
     alignSelf: 'start',
+    fontWeight: '700',
     transform: 'translate(20px,25px)',
   },
 }));
 
-const TableInfoComponent = (data) => {
+const TableInfoComponent = ({ data, length }) => {
   const classes = useStyles();
   let sum = 0;
   let count = 0;
-  let scoreSum = data.data.forEach((score) => {
-    sum += score.score;
-    if (score.madeDadeline == true) count++;
+  let scoreSum = data.forEach((item) => {
+    sum += item.original.score;
+    if (item.original.madeDadeline == true) count++;
   });
-  let length = data.length;
+
   let finished = Math.round((count / length) * 100);
-  let avg = sum / length;
+  let avg = Math.round(sum / length);
 
   return (
     <>
       <div className={classes.info}>{` average score: ${avg}  `}</div>
-      <div
-        className={classes.info}
-      >{` amount of projects who made the dadeline : ${finished}%  `}</div>
+      <div className={classes.info}>{`made the dadeline:${finished}%  `}</div>
     </>
   );
 };

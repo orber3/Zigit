@@ -35,7 +35,7 @@ const infoComponent = (data) => {
       <div className={classes.info}>{` average score: ${avg}  `}</div>
       <div
         className={classes.info}
-      >{` amount of projects who made the dadeline : ${finished}%  `}</div>
+      >{`projects who made the dadeline : ${finished}%  `}</div>
     </>
   );
 };

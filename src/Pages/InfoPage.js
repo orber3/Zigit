@@ -35,6 +35,7 @@ const InfoPage = () => {
     if (userInfo) {
       dispatch(GetInfoAction());
     } else {
+      console.log(userInfo);
     }
   }, [dispatch, userInfo]);
 
@@ -66,7 +67,7 @@ const InfoPage = () => {
               >
                 <img
                   src={props.row.original.personalDetails.avatar}
-                  alt={'value'}
+                  alt={'avatar'}
                   style={{ height: '100%' }}
                 />
               </div>
@@ -113,6 +114,7 @@ const InfoPage = () => {
     ],
     []
   );
+
   return (
     <Grid className={classes.grid}>
       <CssBaseline />

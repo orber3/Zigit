@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useForm, Controller } from 'react-hook-form';
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import { ErrorMessage } from '@hookform/error-message';
 import { LoginAction } from '../Actions/LoginAction';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -42,11 +42,11 @@ const defaultValues = {
   password: '1234',
 };
 
-const Login = ({ location }) => {
+const Login = () => {
   let history = useHistory();
 
   const loginReducer = useSelector((state) => state.loginReducer);
-  const { loading, error, userInfo } = loginReducer;
+  const { loading, error } = loginReducer;
   const classes = useStyles();
 
   const {
@@ -64,7 +64,6 @@ const Login = ({ location }) => {
   const onSubmit = (data) => {
     const { email, password } = data;
     dispatch(LoginAction(email, password));
-
     history.push('/info');
   };
   return (
@@ -117,7 +116,6 @@ const Login = ({ location }) => {
           )}
         />
         <ErrorMessage errors={errors} name="password" />
-
         <Button
           variant="contained"
           type="submit"

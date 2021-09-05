@@ -1,70 +1,71 @@
-# Getting Started with Create React App
+<!--  thank you ! i realy enjoyed the assignment and happy iv'e learned a new tool -react table. -->
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!--
 
-## Available Scripts
+the project is built with Redux for global-state mangement .
+the project style is  built with material ui and inline css.
 
-In the project directory, you can run:
+project layout:
 
-### `npm start`
+app.js contain router for the page
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+./pages
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+main.js checks if the user is already logged in , if its logged in it directs him to the information page,
+if he isnt login it opens the login compenent.
 
-### `npm test`
+/components /LoginComponent.js
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+a wrapper to the login form .
 
-### `npm run build`
+/compnents / LoginForm.js
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+the login form built with material ui and react-form-hook
+i have used regExp to make the validation you have asked  on the forms
+ email pattern and password pattern including , 1 upper case letter, 1 small case letter , a number and atleast 8 characters.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+/Actions
+constans.js
+getInfoAction.js - action to recieve information from the api ( using axios)
+LoginAction.js - action to log in to the api.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+/pages/InfoPage.js
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+the page call for information after recieving the User information from the store.
+the page call for table compenent (re-useable) that renders two tables ( user information and projects information)
+the conditions for rendering the conditinals styles are in the props passed to the tableComponent
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+/components/Table/Tablecomponent.js
+almost all of the table logic and style lays in this component.
+the table knows to filter , sotrt and add background color for score lower then 70 and higher then 90{91+}
 
-## Learn More
+on the Projects table the component know to call for the TableInfoComponent in order to manipulate the data required for the sum and average  and render it to the screen
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+if i had more time i would extract more logic from this component and make it more re-useable.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+//TableInfoComponent.js
+manipulate data related to SUM of score and count the false projects and returns it as a renderd div.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+//Reducers/ getInfoReducer for the projects informatin
+            LoginReducer for the userInformation.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+i wanted to add some tests but i didnt had the time to do it.
+if i were to build the tests i would have used:
+1. jest
+2.Enzyme
+i would  have checked that the components renders correctly and that the state transfer between the pages is working.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+ -->
